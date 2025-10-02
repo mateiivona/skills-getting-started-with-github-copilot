@@ -26,7 +26,12 @@
         <form id="signup-form">
           <div class="form-group">
             <label for="email">Student Email:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="your-email@mergington.edu"
+            />
           </div>
           <div class="form-group">
             <label for="activity">Select Activity:</label>
@@ -39,6 +44,19 @@
         </form>
         <div id="message" class="hidden"></div>
       </section>
+
+      <template id="activity-card-template">
+        <div class="activity-card">
+          <h2 class="activity-name"></h2>
+          <p class="description"></p>
+          <p class="schedule"></p>
+          <div class="participants-list">
+            <h4>Current Participants:</h4>
+            <ul class="participants"></ul>
+          </div>
+          <!-- ...existing signup form... -->
+        </div>
+      </template>
     </main>
 
     <footer>
@@ -46,5 +64,40 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+      // ...existing code...
+      function createActivityCard(activityName, activityData) {
+        // ...existing code...
+        card.querySelector('.description').textContent = activityData.description;
+        card.querySelector('.schedule').textContent = activityData.schedule;
+        
+        // Add participants list
+        const participantsList = card.querySelector('.participants');
+        activityData.participants.forEach(participant => {
+          const li = document.createElement('li');
+          li.textContent = participant;
+          participantsList.appendChild(li);
+        });
+        
+        // ...existing code...
+      }
+      // ...existing code...
+    </script>
+  </body>
+</html>
+        card.querySelector('.schedule').textContent = activityData.schedule;
+        
+        // Add participants list
+        const participantsList = card.querySelector('.participants');
+        activityData.participants.forEach(participant => {
+          const li = document.createElement('li');
+          li.textContent = participant;
+          participantsList.appendChild(li);
+        });
+        
+        // ...existing code...
+      }
+      // ...existing code...
+    </script>
   </body>
 </html>
